@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
+
   def new
+    @titre ="Connexion"
   end
   def create
       if params.key?(:session)

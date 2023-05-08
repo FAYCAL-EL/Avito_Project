@@ -1,3 +1,138 @@
 // Place all the styles related to the Utilisateurs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.main{
+    display: flex;
+    flex-direction: row;
+}
+.rpic{
+      display: -webkit-flex;
+    display: flex;
+}
+.leftdiv{
+    margin: 0 227px;
+}
+
+.avertiss{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    align-items: center;
+    font-size: 14px;
+    padding: 16px;
+    background-color: rgb(234, 240, 255);
+    border-radius: 8px;
+
+}
+.avertiss svg{
+    width: 60px;
+    height: 60px;
+    margin-right: 16px;
+}
+.avertiss p{
+    color: rgb(36, 85, 204);
+    padding: 0px 24px 0px 0px;
+}
+
+.introtext{
+    padding: 64px 0px 16px;
+}
+.introtext h4{
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    letter-spacing: 0.15px;
+    font-weight: bold;
+}
+.introtext p{
+    color: rgb(155, 155, 155);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.buttons button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 168.4px;
+    height: 38.4px;
+    border: #b9b9b9 1px solid;
+    border-radius: 3px;
+    background: #fff;
+    margin: 20px;
+}
+.buttons button img {
+    margin-right:10px ;
+}
+.hr{
+    display: flex;
+    flex-direction: row;
+    align-items: center ;
+    margin-bottom: 20px;
+}
+.hr hr{
+    width: 100%;
+    border-top: 1px solid rgb(204, 204, 204);  
+   
+    height: 1px;
+}
+.hr p{
+    width: 200px;
+    padding: 20px;
+}
+.checkbtn{
+    width: 50px;
+    height: 50px;
+    margin-top: 4px;
+    margin-right: 10px;
+    background-color: #007aff;
+    border-radius: 3px;
+}
+.checkbox{
+    display: flex;
+    flex-direction: row;   
+    align-items:center;
+    margin-bottom: 20px;
+}
+.input{
+    width: 100%;
+    margin-bottom: 20px;
+    height: 50px;
+    padding: 10px 30px ;
+    border-radius: 3px;
+    border: 1px #b9b9b9 solid;
+}
+.input:focus{
+    border: #007aff 2px solid;
+    outline: none;
+}
+
+input[type="submit"]{
+    background-color: #007aff;
+    color: #fff;
+    font-weight:500;
+    border: none;
+
+
+}
+form .conf  {
+    text-decoration: none;
+    color: #007aff;
+}
+
+.inscrire{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+.inscrire a{
+    color: #007aff;
+    list-style: none;
+    text-decoration: none;
+}

@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Avito</title>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    
+ <head>
+    <title><%=@titre %> | Avito.ma</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= favicon_link_tag 'avito_icon.ico' %>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= render 'layouts/navigation' %>
+    <%= render 'layouts/navigationf' %>
+    <%= render 'layouts/header' %>
 
     <% flash.each do |msg_type,msg| %>
       <div class="alert alert-<%= msg_type %>"> <%= msg%> </div>
     <% end %>
 
     <%= yield %>
-    <%= render 'layouts/footer' %>
+    <%# <%= render 'layouts/footer' %> 
   </body>
 </html>

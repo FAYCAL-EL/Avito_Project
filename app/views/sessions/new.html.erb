@@ -1,32 +1,47 @@
-<h1>Identification</h1>
- 
- 
-    <%= form_for(:session, url: login_path, :html => {class: "form-horizontal", role: "form"}) do |f| %>
- 
-        <div class="form-group">
-            <div class="col-sm-2 control-label">
-                <%= f.label :email %>
-            </div>
-            <div class="col-sm-4">
-                <%= f.email_field :email, class:"form-control",  placeholder:"Entrer votre email"%>
-            </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-sm-2 control-label">
-                <%= f.label :password %>
-            </div>
-            <div class="col-sm-4">
-                <%= f.password_field :password , class:"form-control",  placeholder:"Entrer votre password"%>
-            </div>
+<div class="main">
+    <div class="rpic">
+        <%= image_tag("sidepic.png", :alt => "rss feed", style: 'width:588px') %>
+    </div>
+    <div class="leftdiv">
+        <div class="introtext">
+            <h4>Connectez-vous à Avito</h4>
+            <p>Vous pouvez utiliser l'authentification rapide avec votre compte Facebook ou Gmail.</p>
         </div>
+        <div class="buttons">
+            <button>
+                <%= image_tag("gicon.webp", :alt => "rss feed", style: 'height:30px;width:30px') %>
+                <p>Se connecter</p>
+            </button>
+            <button>
+                <%= image_tag("Facebook.png", :alt => "rss feed", style: 'height:20px;width:20px') %>
+                <p>Facebook</p>
+            </button>
+        </div>
+        
+        <div class="hr">
+            <hr >
+            <p>OU BIEN</p>
+            <hr> 
+        </div>
+        <p style="color: rgb(155, 155, 155);margin-bottom: 20px;">Entrez votre e-mail et mot de passe</p>
 
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-4">
-                <%= f.submit "Se connecter", class: "btn btn-primary" %>
-            </div>
+        <%= form_for(:session, url: login_path, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+            <label>
+                <p style="margin-bottom:10px ;">Email</p>
+                <%= f.email_field :email, class:"input",  placeholder:"Email"%>
+            </label>
+            <label>
+                <p style="margin-bottom:10px ;">Mot de passe</p>
+                <%# <input type="password" name="password" placeholder="Mot de passe"> %>
+                <%= f.password_field :password , class:"input",  placeholder:"Mot de passe"%>
+            </label>
+            <a href="#" class="forg">Mot de passe oublié ?</a>
+            <%= f.submit "Se connecter", class: "input" %>
+        <% end %>
+
+        <div class="inscrire">
+            <p >Pas encore inscrit?  <%= link_to "S'inscrire gratuitement.", inscription_path %></p>
         </div>
- 
-	<% end %>
- 
-	<p>Pas encore inscrit ? <%= link_to "S'inscrire !", inscription_path %></p>
+    </div>
+</div>

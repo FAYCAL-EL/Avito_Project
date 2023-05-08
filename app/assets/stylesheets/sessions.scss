@@ -1,3 +1,97 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.main{
+    display: flex;
+    flex-direction: row;
+}
+
+.leftdiv{
+    margin: 0 227px;
+}
+
+.introtext{
+    padding: 64px 0px 16px;
+}
+.introtext h4{
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    letter-spacing: 0.15px;
+    font-weight: bold;
+}
+.introtext p{
+    color: rgb(155, 155, 155);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.buttons button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 168.4px;
+    height: 38.4px;
+    border: #b9b9b9 1px solid;
+    border-radius: 3px;
+    background: #fff;
+    margin: 20px;
+}
+.buttons button img {
+    margin-right:10px ;
+}
+.hr{
+    display: flex;
+    flex-direction: row;
+    align-items: center ;
+    margin-bottom: 20px;
+}
+.hr hr{
+    width: 100%;
+    border-top: 1px solid rgb(204, 204, 204);  
+   
+    height: 1px;
+}
+.hr p{
+    width: 200px;
+    padding: 20px;
+}
+.input{
+    width: 100%;
+    margin-bottom: 20px;
+    height: 50px;
+    padding: 10px 40px ;
+    border-radius: 3px;
+    border: 1px #b9b9b9 solid;
+}
+input[type="submit"]{
+    background-color: #007aff;
+    color: #fff;
+    font-weight:500;
+    border: none;
+
+
+}
+form .forg{
+    color: rgb(102, 102, 102);
+    float: right;
+    font-size: 14px;
+    margin-top: -6px;
+    margin-bottom: 24px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.inscrire{
+    display: flex;
+    justify-content: center;
+}
+.inscrire a{
+    color: #007aff;
+    list-style: none;
+    text-decoration: none;
+}

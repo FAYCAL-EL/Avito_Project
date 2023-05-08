@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'aide' => 'pages#aide'
  	get 'contact' => 'pages#contact'
-   get 'inscription' => 'utilisateurs#new'
+  get 'inscription' => 'utilisateurs#new'
 
   resources :utilisateurs
 
@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     member do
       get :edit
     end
+    
   end
 
 end

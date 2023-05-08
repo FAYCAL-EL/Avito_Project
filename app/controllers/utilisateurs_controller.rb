@@ -1,6 +1,5 @@
 class UtilisateursController < ApplicationController
 
-
   # before_action :bon_utilisateur, only: [:edit, :update]
   before_action :authenticate, only: [:index, :edit, :update, :destroy]
   	
@@ -9,8 +8,10 @@ class UtilisateursController < ApplicationController
     @utilisateurs = Utilisateur.all
   end
   def new
+    @titre = "Créer un compte"
     @utilisateur = Utilisateur.new
   end
+  
   def show
     @utilisateur = Utilisateur.find(params[:id])
     @annonces = @utilisateur.annonces 

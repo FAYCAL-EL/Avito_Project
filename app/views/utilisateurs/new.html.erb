@@ -1,68 +1,104 @@
-<h1>Inscription</h1>
-
- 
-	<%= form_for(@utilisateur, :html => {class: "form-horizontal", role: "form"}) do |f| %>
-	 
-        <%= render 'shared/error_messages'  %>
+<div class="main">
+    <div class="rpic">
+        <%= image_tag("sidepic.png", :alt => "rss feed", style: 'width:588px') %>
+    </div>
+    <div class="leftdiv">
+        <div class="introtext">
+            <h4>Créer un compte Avito.ma</h4>
+        </div>
+        <div class="buttons">
+            <button>
+                <%= image_tag("gicon.webp", :alt => "rss feed", style: 'height:30px;width:30px') %>
+                <p>Se connecter</p>
+            </button>
+            <button>
+                <%= image_tag("Facebook.png", :alt => "rss feed", style: 'height:20px;width:20px') %>
+                <p>Facebook</p>
+            </button>
+        </div>
+        <div class="avertiss">
+            <svg class="av-icon sc-17eawzi-1 ebbnFU" height="32" width="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="ErrorOutlineTitleID" style="fill: rgb(36, 85, 204); stroke: rgb(36, 85, 204); stroke-width: 0;">
+                <title id="ErrorOutlineTitleID">ErrorOutline Icon</title>
+                <path d="M11 15h2v2h-2v-2zm0-8h2v6h-2V7zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
+            </svg>
+            <p>En utilisant l'authentification facile, vous pouvez remplir vos données supplémentaires ultérieurement dans les paramètres de votre compte</p>
+        </div>
+        <div class="hr">
+            <hr >
+            <p>OU BIEN</p>
+            <hr> 
+        </div>
+        <p style="color: rgb(155, 155, 155);margin-bottom: 20px;">Entrez votre e-mail et mot de passe</p>
         
-            <div class="form-group">
-            <div class="col-sm-2 control-label">
-                <%= f.label :nom %>
-            </div>
-            <div class="col-sm-4">
-                <%= f.text_field :nom, class:"form-control",  placeholder:"Entrer votre nom"%>
-            </div>
+        <%= form_for(@utilisateur, :html => {class: "form-horizontal", role: "form"}) do |f| %> 
+            <%= f.label :nom do %>
+               <span style="color: red;">*</span>Nom
+            <% end %>
+            <%= f.text_field :nom, class:"input",  placeholder:"Votre Nom"%>
+            
+            <%= f.label :email do %>
+               <span style="color: red;">*</span>Email
+            <% end %>
+            <%= f.text_field :email, class:"input",  placeholder:"nom@domain.com"%>
+
+          
+            <%= f.label :phone do %>
+                <span style="color: red;">*</span>Téléphone
+            <% end %>
+            <%= f.text_field :phone, class:"input",  placeholder:"06XXXXXXXX"%>
+
+            <%= f.label :password do %>
+                <span style="color: red;">*</span>Mot de passe
+            <% end %>
+            <%= f.password_field :password , class:"input",  placeholder:"Choisissez un mot de passe"%>
+            
+            <%= f.label :password do %>
+                <span style="color: red;">*</span>Confirmer le mot de passe
+            <% end %>
+            <%= f.password_field :password_confirmation , class:"input",  placeholder:"Comfirmer un mot de passe"%>
+            
+
+            <%= f.label :city do %>
+                <span style="color: red;">*</span>Ville
+            <% end %>
+            <%= f.select :city, options_for_select(Ville.all.map{ |c| [c.name, c.id] }), { include_blank: true }, class: "input" %>
+            
+            <div class="checkbox">                   
+                <%= check_box_tag 'my-checkbox', '1', false, class: "checkbtn" %>
+                <label>
+                J’ai lu et j’accepte <%= link_to "les conditions d’utilisation", "https://aide.avito.ma/conditions-generales-dutilisation-du-service-avito/" ,class: "conf" %> . Et je donne mon accord <%= link_to "au traitement de mes données personnelles.", "https://aide.avito.ma/traitement-des-donnees-personnelles/" ,class: "conf" %>
+                </label>    
             </div>
 
-            <div class="form-group">
-            <div class="col-sm-2 control-label">
-                <%= f.label :email %>
-            </div>
-            <div class="col-sm-4">
-                <%= f.email_field :email, class:"form-control",  placeholder:"Entrer votre email"%>
-            </div>
-            </div>
 
-            <div class="form-group">
-            <div class="col-sm-2 control-label">
-                <%= f.label :phone %>
-            </div>
-            <div class="col-sm-4">
-                <%= f.text_field :phone , class:"form-control",  placeholder:"Entrer votre numero", type:"tel"%>
-            </div>
-            </div>
+            <%= f.submit "CRÉER UN COMPTE", id: "submit", class: "input" %>
+        <% end %>
 
-            <div class="form-group">
-            <div class="col-sm-2 control-label">
-                <%= f.label :city %>
-            </div>
-            <div class="col-sm-4">
-                <%= f.text_field :city , class:"form-control",  placeholder:"Entrer votre ville"%>
-            </div>
-            </div>
+        <div class="inscrire">
+            <p >Vous avez déjà un compte?  <%= link_to "SE CONNECTER", login_path %></p>
+        </div>
+    </div>
+</div>
 
-            <div class="form-group">
-            <div class="col-sm-2 control-label">
-                <%= f.label :password %>
-            </div>
-            <div class="col-sm-4">
-                <%= f.password_field :password , class:"form-control",  placeholder:"Entrer votre password"%>
-            </div>
-            </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var checkbox = document.getElementById('my-checkbox');
+    var button = document.getElementById('submit');
 
-            <div class="form-group">
-            <div class="col-sm-2 control-label">
-                <%= f.label :password_confirmation, "Confirmation"  %>
-            </div>
-            <div class="col-sm-4">
-                <%= f.password_field :password_confirmation, class:"form-control",  placeholder:"Confirmer votre password"%>
-            </div>
-            </div>
+    button.disabled = true;
+    button.style.opacity= "0.5";
+    button.style.cursor = "pointer";
+    checkbox.addEventListener('change', function() {
+      if (checkbox.checked) {
+        button.disabled = false;
+        button.style.opacity= "1";
 
-            <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-4">
-                <%= f.submit "Creer", class: "btn btn-primary" %>
-            </div>
-            </div>
- 
-	<% end %>
+      }
+      else {
+        button.disabled = true;
+        button.style.opacity= "0.5";
+      }
+    });
+  });
+</script>
+
