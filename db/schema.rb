@@ -10,7 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_04_043706) do
+ActiveRecord::Schema.define(version: 2023_05_07_145604) do
+
+  create_table "annonces", force: :cascade do |t|
+    t.string "titre"
+    t.text "description"
+    t.integer "prix"
+    t.string "categorie"
+    t.string "ville"
+    t.string "secteur"
+    t.string "adresse"
+    t.string "Etat"
+    t.integer "utilisateur_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["utilisateur_id"], name: "index_annonces_on_utilisateur_id"
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.string "titre"
+    t.text "description"
+    t.integer "prix"
+    t.string "categorie"
+    t.string "ville"
+    t.string "secteur"
+    t.string "adresse"
+    t.string "Etat"
+    t.integer "utilisateur_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["utilisateur_id"], name: "index_articles_on_utilisateur_id"
+  end
 
   create_table "utilisateurs", force: :cascade do |t|
     t.string "nom"
@@ -23,4 +53,6 @@ ActiveRecord::Schema.define(version: 2023_05_04_043706) do
     t.boolean "admin", default: false
   end
 
+  add_foreign_key "annonces", "utilisateurs"
+  add_foreign_key "articles", "utilisateurs"
 end

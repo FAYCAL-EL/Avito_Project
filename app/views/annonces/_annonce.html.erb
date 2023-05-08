@@ -1,0 +1,14 @@
+<li id="annonce-<%= annonce.id %>">
+  <span class="utilisateur"><%= link_to annonce.utilisateur.nom, annonce.utilisateur %></span>
+  <span class="titre"><%= annonce.titre %></span>, 
+<!--   <span class="description"><%= annonce.description %></span> -->
+  <span class="prix"><%= annonce.prix %></span>DH, 
+  <span class="categorie"><%= annonce.categorie %></span>,
+  <span class="ville"><%= annonce.ville %></span>,
+<!--<span class="secteur"><%= annonce.secteur %></span> -->
+<!--<span class="adresse"><%= annonce.adresse %></span> -->
+  <span class="etat"><%= annonce.Etat %></span>,
+  <span class="timestamp">
+    Posté il y a <%= time_ago_in_words(annonce.created_at) %>.
+  </span>
+</li>

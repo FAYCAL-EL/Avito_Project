@@ -1,4 +1,60 @@
-<main style="display:block;box-sizing:border-box;flex:1 1 0%;background-color:rgb(248, 248, 248); margin-botom:1000px;">
+<!-- 
+
+<% if logged_in? %>
+
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="annonce_form">
+        <%= form_for(@annonce) do |f| %>
+            <div class="col-sm-8">
+                <%= f.text_field :titre, rows: 10, class: "form-control", placeholder: "Titre" %>
+            </div>
+            <div class="col-sm-8">
+                <%= f.text_area :description, rows: 10, class: "form-control", placeholder: "Texte" %>
+            </div>
+            <div class="col-sm-8">
+                <%= f.text_field :prix, rows: 10, class: "form-control", placeholder: "Prix" %>
+            </div>
+            <div class="col-sm-8">
+                <%= f.text_field :categorie, rows: 10, class: "form-control", placeholder: "Categorie" %>
+            </div>
+            <div class="col-sm-8">
+                <%= f.text_field :ville, rows: 10, class: "form-control", placeholder: "Ville" %>
+            </div>
+            <div class="col-sm-8">
+                <%= f.text_field :secteur, rows: 10, class: "form-control", placeholder: "Secteur" %>
+            </div>
+            <div class="col-sm-8">
+                <%= f.text_field :adresse, rows: 10, class: "form-control", placeholder: "Adresse" %>
+            </div>
+            <%= f.submit "Soumettre", class: "btn btn-primary" %>
+        <% end %>
+      </section>
+    </aside>
+ </div>
+<% else %>
+ <div class="container">
+    <div class="jumbotron">
+      <h1>LE BLOG</h1>
+      <p>Un blog est un type de site web – ou une partie d'un site web – utilisé pour la publication périodique et régulière d'articles, généralement succincts, et rendant compte d'une actualité autour d'un sujet donné ou d'une profession. (<a  href="https://fr.wikipedia.org/wiki/Blog">Wikipedia</a>)</p>
+      <!--        <p><a class="btn btn-primary btn-lg" href="#" role="button">S'inscrire</a></p> 
+      <%= link_to "S'inscrire", inscription_path, class: "btn btn-lg btn-primary" %>
+    </div>
+  </div>
+
+<% end %>
+-->
+
+
+<% @annonces.each do |annonce| %>
+    <li>
+      <%= link_to annonce.titre, annonce %>
+      <p><%= annonce.description %></p>
+      <p><%= annonce.prix %> DH</p>
+    </li>
+  <% end %>
+
+<!-- <main style="display:block;box-sizing:border-box;flex:1 1 0%;background-color:rgb(248, 248, 248); margin-botom:1000px;">
     <div style="max-width:1280px;box-sizing:border-box;margin-right: auto;margin-left: auto;--gutter:8px;padding-right:8px;padding-left:8px;">
         <div style="display:block;box-sizing:border-box;padding:16px 0px;">
             <ol style="margin-top:0px;margin-bottom:0px;box-sizing:border-box;width: 100%;padding:0px;display:flex;-webkit-box-pack:start;justify-content:flex-start;flex-wrap:wrap;font-size:12px;">
@@ -431,7 +487,7 @@
                     <div style="padding:8px 16px;box-sizing:border-box;width: 100%;border-radius:4px;min-height:50px;background-color:rgb(255, 255, 255);margin-bottom:12px;display:flex;-webkit-box-align:center;align-items:center;-webkit-box-pack:justify;justify-content:space-between;">
                         <div style="box-sizing:border-box;display:flex;-webkit-box-pack:end;justify-content:flex-end;-webkit-box-align:center;align-items:center;">
                             <p style="margin-top:0px;margin-bottom:0px;box-sizing:border-box;min-width:32px;padding:0px 4px;color:rgb(45, 45, 45);font-size:14px;font-weight:400;letter-spacing:1px;">Vue
-                                <!-- -->
+                                
                             </p><button style="cursor:pointer;appearance:button;text-transform:none;overflow:visible;margin:0px;font-family:Rubik, Roboto, Tajawal, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;font-size:16px;line-height:16px;border-radius:8px;box-sizing:border-box;border:0px none rgb(0, 0, 0);display:flex;flex-direction:column;-webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;height:48px;min-width:48px;background-color:rgb(255, 255, 255);padding:0px 4px;"><svg height="19" width="19" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="LayoutRowLineTitleID" style="fill: rgb(45, 45, 45); stroke: rgb(45, 45, 45); stroke-width: 0;stroke:rgb(45, 45, 45);stroke-width:0px;overflow:hidden;vertical-align:middle;box-sizing:border-box;line-height:10px;font-size:10px;">
                                     <title style="box-sizing:border-box;">LayoutRowLine Icon</title>
                                     <path fill="none" d="M0 0h24v24H0z" style="box-sizing:border-box;"></path>
@@ -759,225 +815,163 @@
                         <div style="max-width:33.3333%;box-sizing:border-box;-webkit-box-flex:1;flex-grow:1;width: 100%;">
                             <div style="box-sizing:border-box;padding:0px 12px;">
                                 <h6 style="font-size:16px;margin-bottom:12px;font-weight:500;line-height:19.2px;margin-top:12px;box-sizing:border-box;margin:12px 0px;">INFORMATIQUE ET MULTIMEDIA</h6><a href="/fr/maroc/téléphones-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Téléphones
-                                    <!-- -->
-                                    <!-- -->
+                                
                                 </a><a href="/fr/maroc/tablettes-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Tablettes
-                                    <!-- -->
-                                    <!-- -->
+                                
                                 </a><a href="/fr/maroc/ordinateurs_portables-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Ordinateurs portables
-                                    <!-- -->
-                                    <!-- -->
+                              
                                 </a><a href="/fr/maroc/ordinateurs_bureau-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Ordinateurs de bureau
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/accessoires_informatique_et_gadgets-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Accessoires informatique et Gadgets
-                                    <!-- -->
-                                    <!-- -->
+                                    
+                                    
                                 </a><a href="/fr/maroc/jeux_vidéo_et_consoles-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Jeux vidéo et Consoles
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/appareils_photo_cameras-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Appareils photo et Caméras
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/télévisions-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Télévisions
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/image_et_son-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Image &amp; Son
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a>
                             </div>
                             <div style="box-sizing:border-box;padding:0px 12px;">
                                 <h6 style="font-size:16px;margin-bottom:12px;font-weight:500;line-height:19.2px;margin-top:12px;box-sizing:border-box;margin:12px 0px;">HABILLEMENT ET BIEN ETRE</h6><a href="/fr/maroc/vetements-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Vêtements
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/chaussures-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Chaussures
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/montres_et_bijoux-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Montres et Bijoux
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/sacs_et_accessoires-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Sacs et Accessoires
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/vetements_pour_enfant-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Vêtements pour enfant et bébé
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/equipements_pour_enfant-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Equipements pour enfant et bébé
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/produits_de_beaute-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Produits de beauté
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a>
                             </div>
                             <div style="box-sizing:border-box;padding:0px 12px;">
                                 <h6 style="font-size:16px;margin-bottom:12px;font-weight:500;line-height:19.2px;margin-top:12px;box-sizing:border-box;margin:12px 0px;">LOISIRS ET DIVERTISSEMENT</h6><a href="/fr/maroc/sports_et_loisirs-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Sports et Loisirs
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/animaux-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Animaux
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/instruments_de_musique-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Instruments de Musique
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/art_et_collections-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Art et Collections
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/voyage_et_billetterie-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Voyages et Billetterie
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/films_livres_magazines-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Films, Livres, Magazines
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a>
                             </div>
                         </div>
                         <div style="max-width:33.3333%;box-sizing:border-box;-webkit-box-flex:1;flex-grow:1;width: 100%;">
                             <div style="box-sizing:border-box;padding:0px 12px;">
                                 <h6 style="font-size:16px;margin-bottom:12px;font-weight:500;line-height:19.2px;margin-top:12px;box-sizing:border-box;margin:12px 0px;">VEHICULES</h6><a href="/fr/maroc/voitures-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Voitures d'occasion
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/location_de_voitures-à_louer" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Location de voitures
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/auto_neuf-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Auto neuf
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/pièces_et_accessoires_véhicules-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Pièces et Accessoires pour véhicules
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/motos-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Motos
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/vélos-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Vélos
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/engins_btp-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Engins BTP
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/engins_agricole-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Engins Agricole
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/remorques_et_caravans-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Remorques et Caravanes
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/camions-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Camions
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/bateaux-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Bateaux
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/véhicules_autres-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Autres véhicules
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a>
                             </div>
                             <div style="box-sizing:border-box;padding:0px 12px;">
                                 <h6 style="font-size:16px;margin-bottom:12px;font-weight:500;line-height:19.2px;margin-top:12px;box-sizing:border-box;margin:12px 0px;">IMMOBILIER</h6><a href="/fr/maroc/appartements" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Appartements
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/maisons_et_villas" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Maisons et Villas
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/immo_neuf-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Immo neuf
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/bureaux_et_plateaux" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Bureaux et Plateaux
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/locations_de_vacances-à_louer" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Locations de vacances
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/magasins_et_commerces" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Magasins, Commerces et Locaux industriels
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/colocations" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Colocations
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/terrains_et_fermes-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Terrains et Fermes
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/autres_immobilier-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Autre Immobilier
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a>
                             </div>
                             <div style="box-sizing:border-box;padding:0px 12px;">
                                 <h6 style="font-size:16px;margin-bottom:12px;font-weight:500;line-height:19.2px;margin-top:12px;box-sizing:border-box;margin:12px 0px;">POUR LA MAISON ET JARDIN</h6><a href="/fr/maroc/electorménager_et_vaisselle-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Electroménager et Vaisselles
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/meubles_et_décoration-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Meubles et Décoration
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/jardin_et_outils_de_bricolage-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Jardin et Outils de bricolage
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a>
                             </div>
                         </div>
                         <div style="max-width:33.3333%;box-sizing:border-box;-webkit-box-flex:1;flex-grow:1;width: 100%;">
                             <div style="box-sizing:border-box;padding:0px 12px;">
                                 <h6 style="font-size:16px;margin-bottom:12px;font-weight:500;line-height:19.2px;margin-top:12px;box-sizing:border-box;margin:12px 0px;">ENTREPRISES</h6><a href="/fr/maroc/business_et_affaire_commerciale-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Business et Affaires commerciales
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/matériels_professionnels-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Matériels Professionnels
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/stocks_et_vente_en_gros-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Stocks et Vente en gros
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a>
                             </div>
                             <div style="box-sizing:border-box;padding:0px 12px;">
                                 <h6 style="font-size:16px;margin-bottom:12px;font-weight:500;line-height:19.2px;margin-top:12px;box-sizing:border-box;margin:12px 0px;">EMPLOI ET SERVICES</h6><a href="/fr/maroc/offres_de_emploi-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Offres d'emploi
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/stages-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Offres de stages
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/centre_appels-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Centre d'appels
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/offres_emploi_cadres-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Cadres
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/metiers_it-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Métiers IT
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/femme_de_menage_nounou_chauffeurs-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Femmes de Ménages, Nounous et Chauffeurs
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/travaux_maison-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Travaux de maison
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/demandes_de_emploi-demandes" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Demandes d'emploi
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/services-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Services
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/cours_et_formations-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Cours et Formations
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a>
                             </div>
                             <div style="box-sizing:border-box;padding:0px 12px;">
                                 <h6 style="font-size:16px;margin-bottom:12px;font-weight:500;line-height:19.2px;margin-top:12px;box-sizing:border-box;margin:12px 0px;">VENTE EN DOUANE</h6><a href="/fr/maroc/enchères_publiques_véhicules-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Véhicules
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/enchères_publiques_immobilier-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Immobilier
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a><a href="/fr/maroc/enchères_publiques_divers-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">Divers
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a>
                             </div>
                             <div style="box-sizing:border-box;padding:0px 12px;">
                                 <h6 style="font-size:16px;margin-bottom:12px;font-weight:500;line-height:19.2px;margin-top:12px;box-sizing:border-box;margin:12px 0px;">Autres</h6><a href="/fr/maroc/autres-à_vendre" style="color:rgb(102, 102, 102);text-decoration:none solid rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);box-sizing:border-box;display:block;font-size:12px;">AUTRES
-                                    <!-- -->
-                                    <!-- -->
+                                    
                                 </a>
                             </div>
                         </div>
@@ -988,3 +982,4 @@
         <div style="box-sizing:border-box;"></div>
     </div>
 </main>
+-->

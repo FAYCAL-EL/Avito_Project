@@ -14,6 +14,14 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   
+
+  resources :annonces, only: [:index, :show, :create, :update, :destroy, :new]  do
+
+    member do
+      get :edit
+    end
+  end
+
 end
 
 

@@ -1,0 +1,13 @@
+<h1><%= @annonce.titre %></h1>
+
+<p><%= @annonce.description %></p>
+<p><strong>Prix :</strong> <%= @annonce.prix %>€</p>
+<p><strong>Catégorie :</strong> <%= @annonce.categorie %></p>
+<p><strong>Ville :</strong> <%= @annonce.ville %></p>
+<p><strong>Secteur :</strong> <%= @annonce.secteur %></p>
+<p><strong>Adresse :</strong> <%= @annonce.adresse %></p>
+
+<% if utilisateur_courant == @annonce.utilisateur %>
+  <%= link_to "Modifier", edit_annonce_path(@annonce) %> |
+  <%= link_to "Supprimer", annonce_path(@annonce), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer cette annonce ?" } %>
+<% end %>

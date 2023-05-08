@@ -1,3 +1,11 @@
 <h1>Utilisateurs#Show</h1>
 
 <%= @utilisateur.nom %>, <%= @utilisateur.email %>, <%= @utilisateur.phone %>,  <%= @utilisateur.city %>
+
+<% if @utilisateur.annonces.any? %>
+
+  <h3>Annonces (<%= @utilisateur.annonces.count %>)</h3>
+  <ol class="annonces">
+    <%= render @annonces %>
+  </ol>
+<% end %>

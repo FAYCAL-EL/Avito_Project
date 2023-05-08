@@ -1,0 +1,13 @@
+<h1>Liste des annonces</h1>
+
+<ul>
+  <% @annonces.each do |annonce| %>
+    <li>
+      <%= link_to annonce.titre, annonce %>
+      <p><%= annonce.description %></p>
+      <p><%= annonce.prix %> DH</p>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Nouvelle annonce", new_annonce_path %>

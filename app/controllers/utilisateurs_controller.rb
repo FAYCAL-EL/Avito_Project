@@ -1,7 +1,7 @@
 class UtilisateursController < ApplicationController
 
 
-  before_action :bon_utilisateur, only: [:edit, :update]
+  # before_action :bon_utilisateur, only: [:edit, :update]
   before_action :authenticate, only: [:index, :edit, :update, :destroy]
   	
 
@@ -13,6 +13,7 @@ class UtilisateursController < ApplicationController
   end
   def show
     @utilisateur = Utilisateur.find(params[:id])
+    @annonces = @utilisateur.annonces 
   end
 #! create 
   def create

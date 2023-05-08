@@ -1,0 +1,40 @@
+<h1>Modifier l'annonce</h1>
+
+<%= form_for(@annonce) do |f| %>
+  <div class="field">
+    <%= f.label :titre %>
+    <%= f.text_field :titre %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :prix %>
+    <%= f.number_field :prix %>
+  </div>
+  <div class="field">
+    <%= f.label :categorie %>
+    <%= f.select :categorie, options_for_select([['Option 1', 'option1'], ['Option 2', 'option2'], ['Option 3', 'option3']], @annonce.categorie) %>
+  </div>
+  <div class="field">
+    <%= f.label :ville %>
+    <%= f.text_field :ville %>
+  </div>
+  <div class="field">
+    <%= f.label :secteur %>
+    <%= f.text_field :secteur %>
+  </div>
+  <div class="field">
+    <%= f.label :adresse %>
+    <%= f.text_field :adresse %>
+  </div>
+  <div class="field">
+    <%= f.label :Etat %>
+    <%= f.select :Etat, options_for_select([['Nouveau', 'nouveau'], ['Occasion', 'occasion']], @annonce.Etat) %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Enregistrer les modifications" %>
+    <%= link_to "Annuler", @annonce %>
+  </div>
+<% end %>
