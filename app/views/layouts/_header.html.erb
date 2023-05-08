@@ -1,7 +1,13 @@
+
+
 <nav class="navbars">
-    <div class="logo">
-        <%= image_tag("new-logo.svg", :alt => "rss feed") %>
-    </div>
+    <%= link_to root_path do %>
+        <div class="logo">
+            <%= image_tag("new-logo.svg", :alt => "rss feed") %>
+        </div>
+    <% end %>
+
+
     <div class="snd_part">
         <ul>
             <li class="translang">
@@ -13,9 +19,30 @@
                     </svg>
                 </a>
             </li>
+            
+
+        <% if logged_in? %>
+                    <!-- <li><%= link_to "Utilisateurs",	'#' %></li> -->
+                   <li class="btn1 dropdown">
+                        <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Compte <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><%= link_to "Profile", utilisateur_path(utilisateur_courant) %></li>
+                            <li><%= link_to "Mes Favories", '#' %></li>
+                            <li><%= link_to "Mes Commandes", '#' %></li>
+                            <li><%= link_to "Paramètres", '#' %></li>
+                            <li role="separator" class="divider"></li>
+                            <li><%= link_to "Se déconnecter", logout_path, method: "delete" %></li>
+                        </ul>
+                        </li>
+
+
+        <% else %>
+          <% @utilisateur = Utilisateur.new %> <!-- or any default value you want -->
             <li>
                 <%= link_to "SE CONNECTER", login_path %>
             </li>
+        <% end %>
             <li>
                 <%= link_to  new_annonce_path, class: "btn"  do %>
                     <%= content_tag :span, "+",class:"plus" %>

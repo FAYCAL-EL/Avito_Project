@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :utilisateurs
 
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  post '/favorites/:id', to: 'favorites#create', as: :favorite
 
 
   get 'login' => 'sessions#new'

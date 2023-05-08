@@ -11,4 +11,7 @@ class Annonce < ApplicationRecord
   validates :secteur, presence: true
   validates :adresse, presence: true
   validates :Etat, presence: true
+
+  has_one_attached :image
+  
 end

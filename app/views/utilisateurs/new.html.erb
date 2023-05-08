@@ -31,6 +31,9 @@
         <p style="color: rgb(155, 155, 155);margin-bottom: 20px;">Entrez votre e-mail et mot de passe</p>
         
         <%= form_for(@utilisateur, :html => {class: "form-horizontal", role: "form"}) do |f| %> 
+            
+            <%= render 'shared/error_messages'  %>
+
             <%= f.label :nom do %>
                <span style="color: red;">*</span>Nom
             <% end %>
@@ -39,7 +42,7 @@
             <%= f.label :email do %>
                <span style="color: red;">*</span>Email
             <% end %>
-            <%= f.text_field :email, class:"input",  placeholder:"nom@domain.com"%>
+            <%= f.email_field :email, class:"input",  placeholder:"nom@domain.com"%>
 
           
             <%= f.label :phone do %>

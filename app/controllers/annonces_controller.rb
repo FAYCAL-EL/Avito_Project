@@ -2,7 +2,11 @@ class AnnoncesController < ApplicationController
     before_action :authenticate, only: [:index, :show, :create, :update, :destroy]
     
     def index
-        @annonces = Annonce.all
+        if params[:query].present?
+          @annonces = Annonce.where("titre LIKE ?", "%#{params[:query]}%")
+        else
+          @annonces = Annonce.all
+        end
     end
     
     def show
@@ -43,7 +47,7 @@ class AnnoncesController < ApplicationController
     private
     
     def annonce_params
-        params.require(:annonce).permit(:titre, :description, :prix, :categorie, :ville, :secteur, :adresse, :Etat)
+        params.require(:annonce).permit(:titre, :description, :prix, :categorie, :ville, :secteur, :adresse, :Etat, :image)
     end
 end
     

@@ -1,13 +1,32 @@
 <h1>Liste des annonces</h1>
 
-<ul>
-  <% @annonces.each do |annonce| %>
-    <li>
-      <%= link_to annonce.titre, annonce %>
-      <p><%= annonce.description %></p>
-      <p><%= annonce.prix %> DH</p>
-    </li>
+<div class="search-container">
+  <%= form_tag annonces_path, method: :get, class: "search-form" do %>
+    <%= label_tag :query, "Recherche" %>
+    <%= text_field_tag :query, params[:query], placeholder: "Entrez le titre de l'annonce" %>
+    <%= submit_tag "Rechercher" %>
   <% end %>
+</div>
+
+<ul>
+  <div class="annonces-container">
+  <% @annonces.each do |annonce| %>
+  <li>
+    <div class="annonce">
+      <div class="annonce-image" style="background-image: url('<%= annonce.image.attached? ? url_for(annonce.image) : 'no image' %>')">
+      <div class="image-date"><%= time_ago_in_words(annonce.created_at) %></div>
+      </div>
+      <div class="annonce-details">
+        <h2><%= link_to annonce.titre, annonce %></h2>
+        <p><%= annonce.description %></p>
+        <p><%= annonce.prix %> DH</p>
+       <!-- <p><%= annonce.created_at.strftime("%d/%m/%Y  %I:%M %p") %></p>        -->
+        <p></p>
+      </div>
+    </div>
+  </li>
+  <% end %>
+</div>
 </ul>
 
 <%= link_to "Nouvelle annonce", new_annonce_path %>

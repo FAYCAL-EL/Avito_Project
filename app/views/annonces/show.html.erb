@@ -1,11 +1,13 @@
 <h1><%= @annonce.titre %></h1>
-
+<div class="annonce-image" style="background-image: url('<%= @annonce.image.attached? ? url_for(@annonce.image) : 'no image' %>')">
 <p><%= @annonce.description %></p>
 <p><strong>Prix :</strong> <%= @annonce.prix %>€</p>
 <p><strong>Catégorie :</strong> <%= @annonce.categorie %></p>
 <p><strong>Ville :</strong> <%= @annonce.ville %></p>
 <p><strong>Secteur :</strong> <%= @annonce.secteur %></p>
 <p><strong>Adresse :</strong> <%= @annonce.adresse %></p>
+
+
 
 <% if utilisateur_courant == @annonce.utilisateur %>
   <%= link_to "Modifier", edit_annonce_path(@annonce) %> |
