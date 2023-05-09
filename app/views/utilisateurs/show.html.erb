@@ -1,11 +1,16 @@
-<h1>Utilisateurs#Show</h1>
-
-<%= @utilisateur.nom %>, <%= @utilisateur.email %>, <%= @utilisateur.phone %>,  <%= @utilisateur.city %>
 
 <% if @utilisateur.annonces.any? %>
+<div class="main_div">
+ <div>
+    <p style="color: #2e6bff ;margin-bottom : 10px"><i class="fa-solid fa-list-ul"></i> Mes annonces<p>
+  </div>
+  <hr style="border: 1px #2e6bff solid; width : 150px;margin-bottom:30px">
 
-  <h3>Annonces (<%= @utilisateur.annonces.count %>)</h3>
-  <ol class="annonces">
+  <h5>Toutes les Annonces (<%= @utilisateur.annonces.count %>)</h5>
+  <div class="annonces-container-show">
     <%= render @annonces %>
-  </ol>
+
+  </div>
+</div>
+ 
 <% end %>

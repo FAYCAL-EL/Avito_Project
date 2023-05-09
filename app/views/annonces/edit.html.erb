@@ -1,44 +1,78 @@
-<h1>Modifier l'annonce</h1>
+  <div class="annuler">
+    <p><%= link_to "Annuler", root_path %><p>
+  </div>
+<div class="add_main">  
 
-<%= form_for(@annonce) do |f| %>
-  <div class="field">
-    <%= f.label :titre %>
-    <%= f.text_field :titre %>
+  <div class="add_right">
+    <h5>Qu'annoncez-vous aujourd'hui ?</h5>
+    <p class="add_right_txt">Grâce à ces informations les acheteurs peuvent trouver votre annonce plus facilement</p>
+      
+    <%= form_for(@annonce) do |f| %>
+      <div class="field">
+        <%= f.label :titre  %>
+        <%= f.text_field :titre ,class: "add_input "%>
+      </div>
+      <div class="field">
+        <%= f.label :image %>
+        <%= f.file_field :image ,class: "add_input "%>
+      </div>
+      <div class="field">
+        <%= f.label :description %>
+        <%= f.text_area :description ,class: "add_input "%>
+      </div>
+      <div class="field">
+        <%= f.label :prix %>
+        <%= f.number_field :prix ,class: "add_input "%>
+      </div>
+      <div class="field">
+        <%= f.label :categorie %>
+        <%= f.select :categorie, options_for_select([['Equipement pour Bébé', 'option1'], ['Maison et Jardin', 'option2'], ['Animalerie', 'option3'], ['Instruments de musique', 'option4'], ['Loisirs et Divertissements', 'option5'], ['Habillement et Mode', 'option6'], ['Bien être et Sport', 'option7'],['Informatique', 'option8'], ['Voitures', 'option9'], ['Autres', 'option10']], @annonce.categorie) , { include_blank: true }, class: "add_input"   %>
+      </div>
+      <div class="field">
+        <%= f.label :ville %>
+        <%= f.text_field :ville ,class: "add_input "%>
+        <%= f.select :ville, options_for_select(Ville.all.map{ |c| [c.name, c.id] },@annonce.ville), { include_blank: true }, class: "add_input" %>
+
+      </div>
+      <div class="field">
+        <%= f.label :secteur %>
+        <%= f.text_field :secteur ,class: "add_input "%>
+      </div>
+      <div class="field">
+        <%= f.label :adresse %>
+        <%= f.text_field :adresse ,class: "add_input "%>
+      </div>
+      <div class="field">
+        <%= f.label :Etat %>
+        <%= f.select :Etat, options_for_select([['Neuf', 'neuf'], ['Bon état', 'bonet'], ['Bon', 'bon'], ['Correct', 'correct'], ['Endommagé', 'endommage'], ['Pour Piéces', 'pp']], @annonce.Etat), { include_blank: true }, class: "add_input"   %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Enregistrer les modifs" ,class: "deposer" %>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :image %>
-    <%= f.file_field :image %>
+ <div class="add_left">
+    <div class="up_add_left">
+      <svg class="av-icon sc-ilbl05-4 ieMrUe" height="19" width="19" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="BulbTitleID" style="fill: rgb(255, 255, 255); stroke: rgb(255, 255, 255); stroke-width: 0;margin-bottom:10px;"><title id="BulbTitleID">Bulb Icon</title><path d="M16.392 4.308A6.16 6.16 0 0012 2.5a6.181 6.181 0 00-6.195 6.196c0 1.805.692 3.494 1.897 4.633l.169.158c.697.652 1.651 1.545 1.651 2.334v.929a.62.62 0 00.62.62h.929a.31.31 0 00.31-.31v-4.538a.31.31 0 00-.199-.289 5.063 5.063 0 01-1.013-.556.618.618 0 11.72-1.006c.286.202.838.503 1.111.503.274 0 .825-.301 1.113-.503a.62.62 0 01.719 1.006 5.064 5.064 0 01-1.013.555.31.31 0 00-.2.29v4.538a.31.31 0 00.31.31h.93a.62.62 0 00.62-.62v-.93c0-.77.943-1.662 1.632-2.314l.19-.18c1.24-1.184 1.895-2.787 1.895-4.63a6.163 6.163 0 00-1.804-4.388zM13.86 18.196h-3.717a.62.62 0 000 1.239h3.717a.62.62 0 000-1.24zm-.622 2.064H10.76a.62.62 0 100 1.24h2.478a.62.62 0 100-1.24z"></path></svg>
+    Comment décrire mon annonce
+
+    </div>
+
+    <div class="sc-17eawzi-0 kYxGvK sc-ilbl05-8 dXvUdh" color="sea_dark">
+      <svg class="av-icon sc-17eawzi-1 ebbnFU" height="100" width="100" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="ErrorOutlineTitleID" style="fill: rgb(36, 85, 204); stroke: rgb(36, 85, 204); stroke-width: 0;">
+        <title id="ErrorOutlineTitleID">ErrorOutline Icon</title>
+        <path d="M11 15h2v2h-2v-2zm0-8h2v6h-2V7zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
+      </svg>
+      <div class="sc-17eawzi-3 eIwwLU">
+        <span class="sc-17eawzi-2 fnKVIK">
+          <ul class="sc-ilbl05-11 gRnrIf">
+            <li>Choisir la marque et le modèle est important car cela fournit aux acheteurs potentiels des informations spécifiques sur l'article que vous vendez. Cela aide également à attirer le public cible qui recherche cette marque ou ce modèle spécifique.</li>
+            <li>Un titre doit être accrocheur et concis, il doit donner une idée claire de ce que le produit est et à quoi il sert.</li>
+            <li>La description doit fournir plus d'informations sur le produit, telles que ses caractéristiques, son état et son âge, ainsi que toute autre information qui pourrait être pertinente.</li>
+            <li>Fournir un prix et des informations détaillées sur l'article peut aider à attirer le public cible, construire la confiance avec les acheteurs potentiels et les aider à prendre une décision informée sur l'achat de l'article.</li>
+          </ul>
+        </span>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :prix %>
-    <%= f.number_field :prix %>
-  </div>
-  <div class="field">
-    <%= f.label :categorie %>
-    <%= f.select :categorie, options_for_select([['Option 1', 'option1'], ['Option 2', 'option2'], ['Option 3', 'option3']], @annonce.categorie) %>
-  </div>
-  <div class="field">
-    <%= f.label :ville %>
-    <%= f.text_field :ville %>
-  </div>
-  <div class="field">
-    <%= f.label :secteur %>
-    <%= f.text_field :secteur %>
-  </div>
-  <div class="field">
-    <%= f.label :adresse %>
-    <%= f.text_field :adresse %>
-  </div>
-  <div class="field">
-    <%= f.label :Etat %>
-    <%= f.select :Etat, options_for_select([['Nouveau', 'nouveau'], ['Occasion', 'occasion']], @annonce.Etat) %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Enregistrer les modifications" %>
-    <%= link_to "Annuler", @annonce %>
-  </div>
-<% end %>
+</div>

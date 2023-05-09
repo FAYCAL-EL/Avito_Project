@@ -13,6 +13,7 @@ class UtilisateursController < ApplicationController
   end
   
   def show
+    @titre ="Mes annonces"
     @utilisateur = Utilisateur.find(params[:id])
     @annonces = @utilisateur.annonces 
   end

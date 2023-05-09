@@ -42,13 +42,14 @@
         <hr style="border:1px #eae8e8 solid;width:90%;margin:auto;"> 
         <div class="announcedesc">
           <h4>Description</h4>
-          <p class ="Annetat"><%= @annonce.description %></p>
+          <p class ="Annetat" style="margin-bottom:20px;"><%= @annonce.description %></p>
+
+          <% if utilisateur_courant == @annonce.utilisateur %>
+            <%= link_to "Modifier", edit_annonce_path(@annonce),class: "edit_announcement" %> |
+            <%= link_to "Supprimer", annonce_path(@annonce), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer cette annonce ?" } %>
+          <% end %>
         </div>
-
-
-
-
-
+        
         <div class="signaler">
           <p>Avito.ma n’est pas responsable des produits proposés dans les annonces.</p>
           <button type="button" radius="radiusMax" class="sc-uoqswv-0 sc-uoqswv-1 sc-uoqswv-3 cknXFb ipQbnH"><span class="sc-uoqswv-5 sc-uoqswv-6 cxAEPA iuEbtQ"><svg class="av-icon" height="19" width="19" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="ErrorOutlineTitleID" style="fill: currentcolor; stroke: currentcolor; stroke-width: 0;"><title id="ErrorOutlineTitleID">ErrorOutline Icon</title><path d="M11 15h2v2h-2v-2zm0-8h2v6h-2V7zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path></svg></span>Signaler un abus</button>
@@ -56,18 +57,11 @@
       </div>
     </div>
   </li>
-<style>
-
-
-</style>
 
 
 
 
-<% if utilisateur_courant == @annonce.utilisateur %>
-  <%= link_to "Modifier", edit_annonce_path(@annonce) %> |
-  <%= link_to "Supprimer", annonce_path(@annonce), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer cette annonce ?" } %>
-<% end %>
+
 
 
 

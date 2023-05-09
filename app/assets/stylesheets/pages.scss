@@ -20,6 +20,7 @@ a{
     border-radius: 7px;
     padding: 10px;
     overflow: hidden;
+
    
 }
 .annonce-image {
@@ -54,6 +55,9 @@ a{
 }
 .annonce-details .desc{
     color: #888;
+    width: 200px;
+    height: 20px;
+    overflow: hidden;
 }
 
 

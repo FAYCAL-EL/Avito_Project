@@ -1,14 +1,14 @@
-<li id="annonce-<%= annonce.id %>">
-  <span class="utilisateur"><%= link_to annonce.utilisateur.nom, annonce.utilisateur %></span>
-  <span class="titre"><%= annonce.titre %></span>, 
-<!--   <span class="description"><%= annonce.description %></span> -->
-  <span class="prix"><%= annonce.prix %></span>DH, 
-  <span class="categorie"><%= annonce.categorie %></span>,
-  <span class="ville"><%= annonce.ville %></span>,
-<!--<span class="secteur"><%= annonce.secteur %></span> -->
-<!--<span class="adresse"><%= annonce.adresse %></span> -->
-  <span class="etat"><%= annonce.Etat %></span>,
-  <span class="timestamp">
-    Posté il y a <%= time_ago_in_words(annonce.created_at) %>.
-  </span>
-</li>
+<div class="annonces-container">
+ <%= link_to annonce_path(annonce) do %>
+  <div class="annonce">
+    <div class="annonce-image" style="background-image: url('<%= annonce.image.attached? ? url_for(annonce.image) : 'no image' %>')">
+    <div class="image-date">Il y a <%= time_ago_in_words(annonce.created_at) %></div>
+      </div>
+    <div class="annonce-details">
+      <h2><%= annonce.titre %></h2>
+      <p class="prix"><%= annonce.prix %> DH</p>
+      <p class="desc"><%= annonce.description %></p>
+    </div>
+  </div>
+  <% end %>
+</div>

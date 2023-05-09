@@ -2,6 +2,7 @@ class AnnoncesController < ApplicationController
     before_action :authenticate, only: [:index, :show, :create, :update, :destroy]
     
     def index
+        
         if params[:query].present? && params[:city].present?
           @annonces = Annonce.where("titre LIKE ? AND ville LIKE ?", "%#{params[:query]}%", params[:city])
         elsif params[:query].present?
@@ -35,6 +36,7 @@ class AnnoncesController < ApplicationController
     end
     
     def edit
+        @titre = "Modifier votre annonce"
         @annonce = Annonce.find(params[:id])
     end
     

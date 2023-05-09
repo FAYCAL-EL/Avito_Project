@@ -24,8 +24,9 @@
             <p>OU BIEN</p>
             <hr> 
         </div>
+        
         <p style="color: rgb(155, 155, 155);margin-bottom: 20px;">Entrez votre e-mail et mot de passe</p>
-
+        
         <%= form_for(:session, url: login_path, :html => {class: "form-horizontal", role: "form"}) do |f| %>
             <label>
                 <p style="margin-bottom:10px ;">Email</p>
@@ -36,7 +37,13 @@
                 <%# <input type="password" name="password" placeholder="Mot de passe"> %>
                 <%= f.password_field :password , class:"input",  placeholder:"Mot de passe"%>
             </label>
+            
             <a href="#" class="forg">Mot de passe oublié ?</a>
+            <% if flash.now[:danger].present? %>
+                    <div class="flash-message danger">
+                        <%= flash.now[:danger] %>
+                    </div>
+                <% end %>   
             <%= f.submit "Se connecter", class: "input" %>
         <% end %>
 
