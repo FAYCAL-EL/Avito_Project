@@ -1,25 +1,74 @@
+<div class="main_container">
 
-<div class="search-container">
-  <%= form_tag annonces_path, method: :get, class: "search-form" do %>
-    <%= label_tag :query, "Recherche" %>
-    <%= text_field_tag :query, params[:query], placeholder: "Entrez le titre de l'annonce" %>
-    <%= submit_tag "Rechercher" %>
-  <% end %>
-</div>
-
-<div class="annonces-container">
-  <% @annonces.each do |annonce| %>
-    <div class="annonce">
-      <div class="annonce-image" style="background-image: url('<%= annonce.image.attached? ? url_for(annonce.image) : 'no image' %>')">
-      <div class="image-date"><%= time_ago_in_words(annonce.created_at) %></div>
-        </div>
-      <div class="annonce-details">
-        <h2><%= link_to annonce.titre, annonce %></h2>
-        <p><%= annonce.description %></p>
-        <p><%= annonce.prix %> DH</p>
-       <!-- <p><%= annonce.created_at.strftime("%d/%m/%Y  %I:%M %p") %></p>        -->
-        <p></p>
-      </div>
+  <div class="search-container">
+    <div class="hr">
+      <hr class="red" style="color:red;border:3px red solid;">
+      <hr class="green" style="color:green;border:3px green solid;">
+      <hr class="blue" style="color:blue;border:3px blue solid;">
     </div>
-  <% end %>
+    <div class="non_hr">
+    <%= form_tag annonces_path, method: :get, class: "search-form" do  %>
+      <div class="fields">
+        <%= text_field_tag :query, params[:query], placeholder: "Que recherchez-vous?" ,class:"search_bar"%>
+        <%= select_tag :city, options_for_select(Ville.pluck(:name).uniq, params[:city]), prompt: "Choisissez une ville",class:"ville_bar" %>
+      </div>
+      <%= submit_tag 'Rechercher' ,class: "submit"%>
+    <% end %>
+    </div>
+    
+  </div>
+  <p style="font-size:1.2em;">Ces annonces peuvent vous intéresser<p>
+  <div class="annonces-container">
+    <% @annonces.each do |annonce| %>
+    <%= link_to annonce_path(annonce) do %>
+      <div class="annonce">
+        <div class="annonce-image" style="background-image: url('<%= annonce.image.attached? ? url_for(annonce.image) : 'no image' %>')">
+        <div class="image-date">Il y a <%= time_ago_in_words(annonce.created_at) %></div>
+          </div>
+        <div class="annonce-details">
+          <h2><%= annonce.titre %></h2>
+          <p class="prix"><%= annonce.prix %> DH</p>
+          <p class="desc"><%= annonce.description %></p>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div lang="fr" class="ad_container">
+      <div lang="fr" class="ad_container_content">
+          <h3>Achetez et vendez partout!</h3>
+          <p>Téléchargez nos applications sur Android et iOS</p>
+          <div class="sc-1n13uow-2 hWxuvG">
+              <span class="sc-1n13uow-3 hBEjIX">
+                  <a href="https://play.google.com/store/apps/details?id=se.scmv.morocco&amp;amp;utm_source=homepage&amp;amp;utm_campaign=homepage" target="_blank" class="sc-1n13uow-4 POOvR">
+                      <%= image_tag("google.svg", :alt => "google play", style: 'height:47px;width:167px') %>  
+                  </a>
+              </span>
+              <span class="sc-1n13uow-3 hBEjIX">
+                  <a href="https://apps.apple.com/fr/app/avito-ma/id740544172" target="_blank" class="sc-1n13uow-4 POOvR">
+                      <%= image_tag("apple.svg", :alt => "app store", style: 'height:47px;width:167px') %>
+                  </a>
+              </span>
+          </div>
+      </div>
+  </div>
+  <div class="stats">
+      <div class="stats1">
+          <div class="stats_num">
+              <p>73%</p>
+          </div>
+          <span class="stats_txt">
+              <h5 class="sc-1x0vz2r-0 iuzjeu">Des objets et annonces sont vendus en moins de 3 jours</h5>
+          </span>
+      </div>
+      <div class="stats2">
+          <div class="stats_num">
+              <p>92%</p>
+          </div>
+          <span class="stats_txt">
+              <h5 class="sc-1x0vz2r-0 iuzjeu">De nos utilisateurs sont satisfaits</h5>
+          </span>
+      </div>
+  </div>
 </div>

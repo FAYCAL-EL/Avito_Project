@@ -1,68 +1,59 @@
-<h1>Actualisation</h1>
-
-    <%= form_for(@utilisateur, :html => {class: "form-horizontal", role: "form"}) do |f| %>
-
-    <%= render 'shared/error_messages' %>
-    
-          <div class="form-group">
-            <div class="col-sm-2 control-label">
-                <%= f.label :nom %>
-            </div>
-            <div class="col-sm-4">
-                <%= f.text_field :nom, class:"form-control",  placeholder:"Entrer votre nom"%>
-            </div>
-            </div>
-
-            <div class="form-group">
-            <div class="col-sm-2 control-label">
-                <%= f.label :email %>
-            </div>
-            <div class="col-sm-4">
-                <%= f.email_field :email, class:"form-control",  placeholder:"Entrer votre email"%>
-            </div>
-            </div>
-
-            <div class="form-group">
-            <div class="col-sm-2 control-label">
-                <%= f.label :phone %>
-            </div>
-            <div class="col-sm-4">
-                <%= f.text_field :phone , class:"form-control",  placeholder:"Entrer votre numero", type:"tel"%>
-            </div>
-            </div>
-
-            <div class="form-group">
-            <div class="col-sm-2 control-label">
-                <%= f.label :city %>
-            </div>
-            <div class="col-sm-4">
-                <%= f.text_field :city , class:"form-control",  placeholder:"Entrer votre ville"%>
-            </div>
-            </div>
-
-            <div class="form-group">
-            <div class="col-sm-2 control-label">
-                <%= f.label :password %>
-            </div>
-            <div class="col-sm-4">
-                <%= f.password_field :password , class:"form-control",  placeholder:"Entrer votre password"%>
-            </div>
-            </div>
-
-            <div class="form-group">
-            <div class="col-sm-2 control-label">
-                <%= f.label :password_confirmation, "Confirmation"  %>
-            </div>
-            <div class="col-sm-4">
-                <%= f.password_field :password_confirmation, class:"form-control",  placeholder:"Confirmer votre password"%>
-            </div>
-            </div>
-
-
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-4">
-            <%= f.submit "Actualiser", class: "btn btn-primary" %>
-            </div>
+<div class="edit_main">
+   
+    <p style="color: #2e6bff ;margin-bottom : 10px"><i class="fa-solid fa-gear"></i> Réglages<p>
+    <hr style="border: 1px #2e6bff solid; width : 100px">
+    <div class="edit_down">
+        <div class="sc-8psn2y-1 fFbqVu">
+            <span class="sc-1x0vz2r-0 ewLvRH">Modifier vos informations</span>
+            <svg class="av-icon" height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="ArrowRightSTitleID" style="fill: rgb(0, 0, 0); stroke:  rgb(0, 0, 0); stroke-width: 0;">
+                <title id="ArrowRightSTitleID">ArrowRightS Icon</title>
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"></path>
+            </svg>
         </div>
+        <div>
+                <%= form_for(@utilisateur, :html => {class: "form-horizontal", role: "form"}) do |f| %>
 
-<% end %>
+                <%= render 'shared/error_messages' %>
+                
+                   
+                             <%= f.label :nom do %>
+                                <span style="color: red;">*</span>Nom
+                            <% end %>
+                            <%= f.text_field :nom, class:"input edit_input",  placeholder:"Entrer votre nom"%>
+                       
+                            <%= f.label :email do %>
+                                <span style="color: red;">*</span>Email
+                            <% end %>
+                            <%= f.email_field :email, class:"input edit_input",  placeholder:"Entrer votre email",disabled: true%>
+                            <p style="color:#888;font-size:0.8em; margin-bottom:30px;">Pour des raisons de confidentialité, l’adresse mail ne peut pas être modifiée, pour plus d’information veuillez contacter notre service client au Tél: 0520-42-86-86 / Live chat ICI<p>
+
+                       
+                            
+                            <%= f.label :phone do %>
+                                <span style="color: red;">*</span>Téléphone
+                            <% end %>
+                            <%= f.text_field :phone , class:"input edit_input",  placeholder:"Entrer votre numero", type:"tel"%>
+                      
+
+                             <%= f.label :city do %>
+                                <span style="color: red;">*</span>Ville
+                            <% end %>
+                            <%= f.select :city, options_for_select(Ville.all.map{ |c| [c.name, c.id] }, @utilisateur.city), { include_blank: true }, class: "input edit_input" %>
+
+                            <span style="color: red;">*</span><%= f.label :password %>
+                            <%= f.password_field :password , class:"input edit_input",  placeholder:"Entrer votre password"%>
+                        
+
+                            <span style="color: red;">*</span><%= f.label :password_confirmation, "Confirmation"  %>
+                            <%= f.password_field :password_confirmation, class:"input edit_input",  placeholder:"Confirmer votre password"%>
+                        <div class="actualiser">
+                         <p><%= link_to "Annuler", root_path %><p>
+                            <%= f.submit "Sauvegarder", class: "deposer" %>
+                        </div>
+                       
+
+            <% end %>
+        </div>
+    </div>
+</div>

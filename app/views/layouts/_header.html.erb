@@ -22,23 +22,24 @@
             
 
         <% if logged_in? %>
-                    <!-- <li><%= link_to "Utilisateurs",	'#' %></li> -->
                    <li class="btn1 dropdown">
-                        <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Compte <span class="caret"></span>
+                        <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <p> Compte </p>
+                            <svg class="av-icon" height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="ChevronDownTitleID" style="fill: currentcolor; stroke: currentcolor; stroke-width: 0;"><title id="ChevronDownTitleID">ChevronDown Icon</title><path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6-6-6 1.41-1.42z"></path></svg>
                         </a>
                         <ul class="dropdown-menu">
                             <li><%= link_to "Profile", utilisateur_path(utilisateur_courant) %></li>
                             <li><%= link_to "Mes Favories", '#' %></li>
                             <li><%= link_to "Mes Commandes", '#' %></li>
-                            <li><%= link_to "Paramètres", '#' %></li>
+                            <li><%= link_to "Réglages", edit_utilisateur_path(utilisateur_courant) %></li>
                             <li role="separator" class="divider"></li>
                             <li><%= link_to "Se déconnecter", logout_path, method: "delete" %></li>
                         </ul>
-                        </li>
+                    </li>
 
 
         <% else %>
-          <% @utilisateur = Utilisateur.new %> <!-- or any default value you want -->
+          <% @utilisateur = Utilisateur.new %> 
             <li>
                 <%= link_to "SE CONNECTER", login_path %>
             </li>

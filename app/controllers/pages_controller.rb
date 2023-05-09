@@ -6,12 +6,4 @@ class PagesController < ApplicationController
 
   end
 
-  def aide
-    @title = "Aide"
-  end
-
-  def contact
-    @title = "Contact"
-  end
-
 end

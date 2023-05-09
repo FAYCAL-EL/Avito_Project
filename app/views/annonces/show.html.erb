@@ -1,11 +1,66 @@
-<h1><%= @annonce.titre %></h1>
-<div class="annonce-image" style="background-image: url('<%= @annonce.image.attached? ? url_for(@annonce.image) : 'no image' %>')">
-<p><%= @annonce.description %></p>
-<p><strong>Prix :</strong> <%= @annonce.prix %>€</p>
-<p><strong>Catégorie :</strong> <%= @annonce.categorie %></p>
-<p><strong>Ville :</strong> <%= @annonce.ville %></p>
-<p><strong>Secteur :</strong> <%= @annonce.secteur %></p>
-<p><strong>Adresse :</strong> <%= @annonce.adresse %></p>
+
+<%= link_to root_path  do %>
+  <button class="sc-38wy1v-0 KKAJR"><svg class="av-icon" height="32" width="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="ArrowLeftTitleID" style="fill: rgb(74, 74, 74); stroke: rgb(74, 74, 74); stroke-width: 0;"><title id="ArrowLeftTitleID">ArrowLeft Icon</title><path d="M18.973 10.77A1.03 1.03 0 0120 11.795a1.03 1.03 0 01-1.027 1.027H7.503l5.001 5.02a1.023 1.023 0 11-1.447 1.449L4.3 12.515c-.4-.4-.4-1.048 0-1.448L11.067 4.3c.4-.4 1.047-.4 1.448 0 .4.4.4 1.058 0 1.458L7.504 10.77h11.47z"></path></svg></button>
+<% end %>
+<div class="MonAnnonce">
+      
+      
+      <div class="annonce-img" style="background-image: url('<%= @annonce.image.attached? ? url_for(@annonce.image) : 'no image' %>')">
+      </div>
+      <div class="annonce-info">     
+        <div class="annonce-det">
+          <div class="annonceTitle">
+            <h2 class="Anntitre"><%= @annonce.titre %></h2>
+          </div>
+          <div class="annonce-price">
+            <h2 class="Annprix"><%= @annonce.prix %> DH</h2>
+          </div>
+        </div>
+        <div class="annonce-det1">
+          <p class ="Annville"><i class="fa-solid fa-location-dot"></i><%= @annonce.ville %></p>
+          <p class ="Anntime"><i class="fa-solid fa-clock"></i><%= @annonce.created_at.strftime("%d/%m/%Y  %I:%M %p") %></p>
+        </div>
+
+
+        <div class="annonce-det3">
+          <%= image_tag("avatar.svg", :alt => "rss feed") %>
+          <h3><%= @utilisateur.nom %></h3>
+          <button type="button" class="coonect_btn" ><span class="contacter"><svg class="av-icon" height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="ChatBubbleOutlineTitleID" style="fill: currentcolor; stroke: currentcolor; stroke-width: 0;"><title id="ChatBubbleOutlineTitleID">ChatBubbleOutline Icon</title><path d="M6.8 19.2l.7-.4c.8-.5 1.8-.7 2.7-.5.2 0 .4.1.5.1.4.1.8.1 1.2.1 4.4 0 7.9-3 7.9-6.6S16.4 5.2 12 5.2s-7.9 3-7.9 6.6c0 1.4.5 2.7 1.4 3.8 0 .1.1.1.2.2.8.8 1.2 2 1.1 3.1v.3zm-.6 2.7c-.5.3-1.1.2-1.4-.3-.1-.2-.2-.4-.1-.6l.2-2.3c0-.6-.2-1.1-.6-1.6-.1 0-.2-.1-.3-.2-1.2-1.4-1.9-3.2-1.9-5.1C2.1 7 6.5 3.2 12 3.2s9.9 3.8 9.9 8.6-4.4 8.6-9.9 8.6c-.5 0-1 0-1.5-.1-.2 0-.4-.1-.6-.1-.5-.1-.9 0-1.4.3l-2.3 1.4z"></path></svg></span>Contacter le Vendeur</button>        </div>
+        </div>
+
+
+        <hr style="border:1px #eae8e8 solid;width:90%;margin:auto;">
+
+
+        <div class="annonce-det2">
+          <h4>Type</h4>
+          <p class ="Anntype"><%= @annonce.categorie %> DH</p> <br>
+          <h4>État</h4>
+          <p class ="Annetat"><%= @annonce.Etat %> DH</p>
+        </div>
+       
+        <hr style="border:1px #eae8e8 solid;width:90%;margin:auto;"> 
+        <div class="announcedesc">
+          <h4>Description</h4>
+          <p class ="Annetat"><%= @annonce.description %></p>
+        </div>
+
+
+
+
+
+        <div class="signaler">
+          <p>Avito.ma n’est pas responsable des produits proposés dans les annonces.</p>
+          <button type="button" radius="radiusMax" class="sc-uoqswv-0 sc-uoqswv-1 sc-uoqswv-3 cknXFb ipQbnH"><span class="sc-uoqswv-5 sc-uoqswv-6 cxAEPA iuEbtQ"><svg class="av-icon" height="19" width="19" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="ErrorOutlineTitleID" style="fill: currentcolor; stroke: currentcolor; stroke-width: 0;"><title id="ErrorOutlineTitleID">ErrorOutline Icon</title><path d="M11 15h2v2h-2v-2zm0-8h2v6h-2V7zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path></svg></span>Signaler un abus</button>
+        </div>
+      </div>
+    </div>
+  </li>
+<style>
+
+
+</style>
+
 
 
 
@@ -13,3 +68,10 @@
   <%= link_to "Modifier", edit_annonce_path(@annonce) %> |
   <%= link_to "Supprimer", annonce_path(@annonce), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer cette annonce ?" } %>
 <% end %>
+
+
+
+
+
+
+

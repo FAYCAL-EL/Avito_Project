@@ -136,3 +136,37 @@ form .conf  {
     list-style: none;
     text-decoration: none;
 }
+
+.fFbqVu{
+    width: 50%;
+    height: 50px;
+    margin-top: 8px;
+    background-color: rgb(242, 242, 242);
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 100px;
+}
+
+.edit_main{
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+.edit_down{
+    display: flex;
+    flex-direction: row;
+}
+.actualiser{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.edit_input{
+    margin-top: 10px;
+}

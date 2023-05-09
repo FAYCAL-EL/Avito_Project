@@ -20,8 +20,8 @@ class UtilisateursController < ApplicationController
   def create
     @utilisateur = Utilisateur.new(utilisateur_params)
     if @utilisateur.save
-      flash[:success] = "Bienvenue!"
-      redirect_to @utilisateur
+      flash[:success] = "Compte à bien étre créer! Veuillez vous connecter!"
+      redirect_to login_path
     else
       render 'new'
     end
@@ -29,6 +29,7 @@ class UtilisateursController < ApplicationController
 
 #! edit  utlisateur
   def edit
+    @titre = "Réglages"
     @utilisateur = Utilisateur.find(params[:id])
     @utilisateur_courant = utilisateur_courant
   end

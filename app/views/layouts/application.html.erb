@@ -10,17 +10,25 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css', integrity: 'sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==', crossorigin: 'anonymous', referrerpolicy: 'no-referrer' %>
+
   </head>
   <body>
     <%= render 'layouts/navigationf' %>
-    <%= render 'layouts/header' %>
+    <% unless current_page?(new_annonce_path) %>
+      <%= render 'layouts/header' %>
+    <% end %>
+    
 
     <% flash.each do |msg_type,msg| %>
       <div class="alert alert-<%= msg_type %>"> <%= msg%> </div>
     <% end %>
 
     <%= yield %>
-    <%# <%= render 'layouts/footer' %> 
+
+    <% unless current_page?(login_path) || current_page?(inscription_path) %>
+      <%= render 'layouts/footer' %>
+    <% end %>
+    
   </body>
 </html>

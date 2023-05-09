@@ -1,3 +1,286 @@
 // Place all the styles related to the Annonces controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.add_main{
+    display: flex;
+    flex-direction: row; 
+    width: 80%;   
+    margin: auto;
+}
+
+.add_right{
+    margin-top: 20px;   
+    width: 70%;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 5px;
+    padding: 50px 30px;
+    margin-right:20px ;
+    
+}
+.add_right h5{
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.add_right_txt{
+    margin-bottom: 30px;
+    color: #888;
+}
+.add_left{
+    margin-top: 20px;
+    width: 30%;
+    height: 100%;
+    padding: 16px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.up_add_left{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.hmXtPr {
+    display: flex;
+    flex-shrink: 0;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    margin: 0px 8px 0px 0px;
+    height: 32px;
+    width: 32px;
+    background-color: rgb(58, 164, 255);
+    border-radius: 100px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+.kYxGvK li{
+    list-style: none;
+    margin-bottom: 24px;
+    font-size: 0.7em;
+}
+.kYxGvK{
+    display: flex;
+    align-items: flex-start;
+    padding: 12px;
+    border-radius: 8px;
+    color: rgb(36, 85, 204);
+    background-color: rgb(234, 240, 255);
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.add_input{
+    width: 100%;
+    height: 40px;
+    padding: 10px 20px;
+    resize: vertical;
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+}
+
+.deposer{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 219px;
+    height: 40px;
+    background-color: #2E6BFF;
+    border-color: #2E6BFF;
+    cursor: pointer;
+    padding: 0px 0.75rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+.annuler{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    height: 60px;
+    align-items: center;
+    display: flex;
+    justify-content: right;
+    padding: 0 200px;
+    
+}
+.annuler a{
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+}
+
+.drop-image-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  
+  .drop-image-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    
+  }
+  
+  .drop-image-label .label-text {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    color: #666;
+  }
+  
+  .drop-image-preview {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .drop-image-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+
+.MonAnnonce{
+    width: 70%;
+    margin: auto;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+}
+
+
+.annonce-img {
+position: relative;
+width: 50%;
+height: 500px;
+background-size: cover;
+background-position: center center;
+margin-right: 25%;
+margin-left: 25%;
+// margin-bottom: 50px;
+
+}
+.annonce-info,.annonce-det2,.announcedesc,.signaler{
+    padding: 50px;
+}
+
+.annonce-det ,.annonce-det2{
+    display: flex;
+    justify-content: space-between;
+    // align-items: center;
+}
+.annonceTitle h2 {
+flex: 1;    
+font-weight: 500;
+margin-bottom: 20px;
+}
+.annonce-det1 {
+display: flex;
+align-items: center;
+
+}
+.annonce-det3 {
+    display: inline-block;
+    margin-left: 10px;
+}
+ 
+
+.Annprix {
+margin-right: 10px;
+color:rgb(46, 107, 255);
+font-weight: 400;
+}
+.Annville {
+     margin-right: 20px;
+}
+.Annville i,.Anntime i{
+    margin-right: 20px;
+}
+.contacter{
+    margin-right: 50px;
+}
+
+.annonce-det2{
+    flex-direction: column;
+    
+}
+.annonce-det3 {
+    display: flex;
+    align-items: center; 
+    margin-top: 30px;
+
+}
+.annonce-det3 img{
+margin-right: 30px;
+}
+
+
+.signaler{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.signaler p{
+    margin-bottom: 10px;
+    color: #888;
+}
+.signaler button{
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    margin: 0 200px;
+    background-color: #fff;
+    border: 1px red solid;
+    color: red;
+    padding: 10px 20px;
+    border-radius: 30px;
+    align-items: center;
+}
+.signaler button span{
+    margin-right: 10px;
+}
+
+.coonect_btn{
+    display: flex;
+    justify-content: center;
+    background-color: #2E6BFF;
+    color: #fff;
+    align-items: center;
+    border: none;
+    padding: 10px 20px ;
+    border-radius: 50px;
+    position: absolute;
+    right: 25%;
+}
+
+.KKAJR {
+    position: fixed;
+    top: 130px;
+    left: 190px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    box-shadow: rgba(52, 54, 55, 0.2) 0px 8px 24px;
+    border-radius: 50%;
+    cursor: pointer;
+}
